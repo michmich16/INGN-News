@@ -1,0 +1,41 @@
+@import '../../helper/helper.scss';
+
+.footerStyle {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: $light ;
+    font-family: Roboto Flex;
+    gap: 2rem;
+
+    .footerContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        padding: 1rem;
+
+        ul {
+            li {
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: $dark;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .footerStyle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .footerContent {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
