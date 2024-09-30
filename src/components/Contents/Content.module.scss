@@ -1,0 +1,16 @@
+@import '../../helper/helper.scss';
+
+.contentStyle{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    .articleStyle{
+        .articleInfo{
+            display: flex;
+            color: $highlight;
+        }
+        img{
+            width: 100%;
+        }
+    }
+}

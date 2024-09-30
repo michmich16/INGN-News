@@ -47,7 +47,7 @@ export const Content = () => {
           return (
             <article className={s.articleStyle} key={item.id}>
               <h2>{item.heading}</h2>
-              <span>
+              <span className={s.articleInfo}>
                 <p>{formatDate(item.published)}</p>
                 <p>{item.author}</p>
               </span>
