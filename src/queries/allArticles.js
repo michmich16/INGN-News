@@ -1,10 +1,13 @@
 export const allArticles = `query MyQuery {
     articles {
         id
+        author
         heading
         published
-        author
-        text
         hashtag
+        text
+        image{
+          url
+        }
       }
   }`
