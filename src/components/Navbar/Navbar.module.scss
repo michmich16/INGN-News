@@ -20,23 +20,30 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .navLogo {
     color: $highlight;
     font-family: Righteous;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 48px;
+    font-weight: 400;
+    padding-left: 1rem;
 }
 
 .navLogin{
     color: $highlight;
+    .loginIcon{
+        font-size: 26px;
+    }
 }
 
 .navMenu {
-    display: flex;
+ display: flex;
     list-style: none;
     transition: all 0.3s ease;
+    font-family: Roboto Flex;
 
     &.active {
         display: flex;
@@ -44,7 +51,10 @@ body {
 }
 
 .navItem {
-    margin-left: 2rem;
+    margin: 0 1rem;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: Roboto Flex;
 }
 
 .navLink {
@@ -67,13 +77,19 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 780px) {
+    .navContainer{
+        display: grid;
+        grid-template-columns: 9fr 1fr 1fr;
+        
+    }
     .navMenu {
         display: none;
         flex-direction: column;
         width: 100%;
+        height: 50%;
         position: absolute;
-        top: 60px;
+        top: 70px;
         left: 0;
         background-color: $light;
         text-align: center;
@@ -85,5 +101,22 @@ body {
 
     .hamburger {
         display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .navLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+}
+
+@media (max-width: 450px){
+    .navContainer{
+        display: grid;
+        grid-template-columns: 9fr 1fr 1fr;
+        gap: 1rem;
     }
 }

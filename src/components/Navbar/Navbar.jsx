@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
-import styles from './Navbar.module.scss';
+import style from './Navbar.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from "@fortawesome/free-solid-svg-icons"
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,24 +12,25 @@ export function Navbar() {
     };
 
     return (
-        <nav className={styles.navbar}>
-            <div className={styles.navContainer}>
-                <a href="#" className={styles.navLogo}>INGN</a>
-                <div className={styles.hamburger} onClick={toggleMenu}>
-                    <span className={styles.bar}></span>
-                    <span className={styles.bar}></span>
-                    <span className={styles.bar}></span>
-                </div>
-                <ul className={`${styles.navMenu} ${isOpen ? styles.active : ''}`}>
-                    <li className={styles.navItem}><a href="#" className={styles.navLink}>Alle</a></li>
-                    <li className={styles.navItem}><a href="#" className={styles.navLink}>Indland</a></li>
-                    <li className={styles.navItem}><a href="#" className={styles.navLink}>Udland</a></li>
-                    <li className={styles.navItem}><a href="#" className={styles.navLink}>Teknologi</a></li>
-                    <li className={styles.navItem}><a href="#" className={styles.navLink}>Sport</a></li>
-                    <li className={styles.navItem}><a href="#" className={styles.navLink}>Politik</a></li>
-                    <li className={styles.navItem}><a href="#" className={styles.navLink}>Samfund</a></li>
+        <nav className={style.navbar}>
+            <div className={style.navContainer}>
+                <NavLink className={style.navLogo} to={'/'}>INGN</NavLink>
+                <ul className={`${style.navMenu} ${isOpen ? style.active : ''}`}>
+                    <li className={style.navItem}><a href="#" className={style.navLink}>Alle</a></li>
+                    <li className={style.navItem}><a href="#" className={style.navLink}>Indland</a></li>
+                    <li className={style.navItem}><a href="#" className={style.navLink}>Udland</a></li>
+                    <li className={style.navItem}><a href="#" className={style.navLink}>Teknologi</a></li>
+                    <li className={style.navItem}><a href="#" className={style.navLink}>Sport</a></li>
+                    <li className={style.navItem}><a href="#" className={style.navLink}>Politik</a></li>
+                    <li className={style.navItem}><a href="#" className={style.navLink}>Samfund</a></li>
                 </ul>
-                <a href="#" className={styles.navLogin}>Login</a>
+                <div className={style.hamburger} onClick={toggleMenu}>
+                    <span className={style.bar}></span>
+                    <span className={style.bar}></span>
+                    <span className={style.bar}></span>
+                </div>
+                <NavLink className={style.navLogin} to={'/login'}><FontAwesomeIcon className={style.loginIcon} icon={faUser} /></NavLink>
+
             </div>
         </nav>
     );

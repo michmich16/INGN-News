@@ -36,6 +36,19 @@
             margin: 0;
             display: flex;
             flex-direction: column;
+            text-align: center;
+        }
+    }
+}
+@media (max-width: 450px) {
+    .footerStyle {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .footerContent {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
         }
     }
 }

@@ -1,0 +1,11 @@
+@import '../../helper/helper.scss';
+
+.loginStyle{
+    max-width: 1440px;
+    margin: auto;
+    background-color: $light;
+    .loginContent{
+        margin: 2rem 0;
+        padding: 2rem;
+    }
+}

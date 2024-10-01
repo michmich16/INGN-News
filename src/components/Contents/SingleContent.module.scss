@@ -2,10 +2,8 @@
 
 
 .contentStyle{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    max-width: 1440px;
+    display: flex;
+    max-width: 1400px;
     margin: auto;
     .articleStyle{
         background-color: $light;
@@ -14,9 +12,6 @@
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            h2{
-                font-size: 28px;
-            }
             .articleInfo{
                 display: flex;
                 color: $highlight;
@@ -26,7 +21,6 @@
         }
         img{
             width: 100%;
-            object-fit: cover;
         }
     }
 }

@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+.contentStyle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.contentStyle .articleStyle {
+  background-color: #FFFFFF;
+  margin: 1rem;
+}
+.contentStyle .articleStyle .articleDevider {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.contentStyle .articleStyle .articleDevider .articleInfo {
+  display: flex;
+  color: #C52525;
+  gap: 0.5rem;
+}
+.contentStyle .articleStyle img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contentStyle {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .contentStyle .articleStyle {
+    margin-top: 1rem;
+  }
+}/*# sourceMappingURL=Content.module.css.map */

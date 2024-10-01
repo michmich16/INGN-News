@@ -43,15 +43,16 @@ export const Content = () => {
     <>
       <div className={s.contentStyle}>
         {data?.articles.map((item) => {
-          console.log("Published Date:", item.published);
           return (
             <article className={s.articleStyle} key={item.id}>
+              <div className={s.articleDevider}>
               <h2>{item.heading}</h2>
               <span className={s.articleInfo}>
                 <p>{formatDate(item.published)}</p>
-                <p>{item.author}</p>
+                <p> af {item.author}</p>
               </span>
-              <a href="#">Læs mere</a>
+              <Link to={`/article/${item.id}`}>Læs mere</Link>
+              </div>
               <img src={item.image?.[0]?.url || ""} alt={item.heading} />
             </article>
           );
