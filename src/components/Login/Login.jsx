@@ -1,9 +1,10 @@
-import s from './Login.module.scss'
-export const Login = () => {
+import React, { useState } from "react";
+import s from "./Login.module.scss";
 
-    const LoginForm = () => {
-        const [username, setUsername] = useState("");
-        const [password, setPassword] = useState("");
+
+export const Login = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -12,39 +13,42 @@ export const Login = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit} style={{ maxWidth: "300px", margin: "auto" }}>
-                <div style={{ marginBottom: "1rem" }}>
-                    <label htmlFor="username" style={{ display: "block", marginBottom: ".5rem" }}>
-                        Brugernavn:
-                    </label>
-                    <input
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        style={{ width: "100%", padding: ".5rem" }}
-                    />
+            <div className={s.loginStyle}>
+                <div className={s.loginContent}>
+                <h2>Log ind</h2>
+                <form onSubmit={handleSubmit} className={s.form}>
+                    <div className={s.formGroup}>
+                        <label htmlFor="username" className={s.label}>
+                            Brugernavn:
+                        </label>
+                        <input
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            className={s.input}
+                        />
+                    </div>
+
+                    <div className={s.formGroup}>
+                        <label htmlFor="password" className={s.label}>
+                            Password:
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className={s.input}
+                        />
+                    </div>
+
+                    <button type="submit" className={s.button}>
+                        Log Ind
+                    </button>
+                </form>
                 </div>
-
-                <div style={{ marginBottom: "1rem" }}>
-                    <label htmlFor="password" style={{ display: "block", marginBottom: ".5rem" }}>
-                        Password:
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        style={{ width: "100%", padding: ".5rem" }}
-                    />
-                </div>
-
-                <button type="submit" style={{ width: "100%", padding: ".5rem", backgroundColor: "#007BFF", color: "white", border: "none", cursor: "pointer" }}>
-                    Log Ind
-                </button>
-            </form>
-
-
+            </div>
         </>
-    )
-}}
+    );
+};

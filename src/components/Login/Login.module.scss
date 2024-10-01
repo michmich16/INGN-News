@@ -1,11 +1,50 @@
 @import '../../helper/helper.scss';
-
+*{
+    padding: 0;
+    margin: 0;
+}
 .loginStyle{
-    max-width: 1440px;
-    margin: auto;
-    background-color: $light;
-    .loginContent{
-        margin: 2rem 0;
-        padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  background-color: $light;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 600px;
+  .loginContent{
+    padding: 4rem 3rem;
+    .form {
+      max-width: 500px;
+      height: 40px;
+      margin: auto;
+    
+      .formGroup {
+        margin-bottom: 1rem;
+    
+        .label {
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+    
+        .input {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid $highlight;
+        }
+      }
+    
+      .button {
+        width: 120px;
+        height: 40px;
+        padding: 0.5rem;
+        background-color: $light;
+        border: 1px solid $highlight;
+        color: $dark;
+        cursor: pointer;
+    
+        &:hover {
+          background-color: $highlight;
+        }
+      }
     }
+  }
 }

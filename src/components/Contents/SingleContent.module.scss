@@ -1,35 +1,56 @@
 @import '../../helper/helper.scss';
 
-
-.contentStyle{
+.contentStyle {
     display: flex;
+    flex-direction: column;
     max-width: 1400px;
     margin: auto;
-    .articleStyle{
+
+    .backNav {
+        list-style-type: none;
+        margin-bottom: 1rem;
+
+        .backItem {
+            padding-top: 2rem;
+            padding-left: 1rem;
+            cursor: pointer;
+            color: $highlight;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .articleStyle {
         background-color: $light;
         margin: 1rem;
-        .articleDevider{
+
+        .articleDevider {
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            .articleInfo{
+
+            .articleInfo {
                 display: flex;
                 color: $highlight;
                 gap: 0.5rem;
             }
-
         }
-        img{
+
+        img {
             width: 100%;
         }
     }
 }
 
 @media (max-width: 768px) {
-    .contentStyle{
+    .contentStyle {
         display: grid;
         grid-template-columns: 1fr;
-        .articleStyle{
+
+        .articleStyle {
             margin-top: 1rem;
         }
     }

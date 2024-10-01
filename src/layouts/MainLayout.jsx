@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Navbar } from "../components/Navbar/Navbar";
 import { Footer } from "../components/Footer/Footer";
 
-export const MainLayout = () =>{
+export const MainLayout = ({ setSelectedHashtag }) =>{
     const location = useLocation();
 
     useEffect(() =>{
@@ -12,7 +12,7 @@ export const MainLayout = () =>{
 
     return(
         <>
-        <Navbar></Navbar>
+        <Navbar setSelectedHashtag={setSelectedHashtag} />
         <Outlet/>
         <Footer></Footer>
 

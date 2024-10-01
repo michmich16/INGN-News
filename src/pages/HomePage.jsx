@@ -1,9 +1,9 @@
 import { Content } from "../components/Contents/Content"
 
-export const HomePage = () =>{
+export const HomePage = ({selectedHashtag}) =>{
     return(
         <>
-        <Content></Content>
+        <Content selectedHashtag={selectedHashtag} />
         </>
     )
 }

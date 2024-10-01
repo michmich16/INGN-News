@@ -1,12 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { request } from "graphql-request";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { allArticles } from "../../queries/allArticles";
 import s from "./Content.module.scss";
 
-export const Content = () => {
+export const Content = ({ selectedHashtag }) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["allArticles"],
     queryFn: async () =>
@@ -15,7 +13,6 @@ export const Content = () => {
         allArticles
       ),
   });
-  console.log(data);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -23,6 +20,12 @@ export const Content = () => {
   if (error) {
     return <p>Error {error.message}</p>;
   }
+
+  const filteredArticles = selectedHashtag
+    ? data?.articles.filter((article) =>
+        article.hashtag?.toLowerCase().includes(selectedHashtag.toLowerCase())
+      )
+    : data?.articles;
 
   const formatDate = (dateString) => {
     try {
@@ -40,24 +43,20 @@ export const Content = () => {
   };
 
   return (
-    <>
-      <div className={s.contentStyle}>
-        {data?.articles.map((item) => {
-          return (
-            <article className={s.articleStyle} key={item.id}>
-              <div className={s.articleDevider}>
-              <h2>{item.heading}</h2>
-              <span className={s.articleInfo}>
-                <p>{formatDate(item.published)}</p>
-                <p> af {item.author}</p>
-              </span>
-              <Link to={`/article/${item.id}`}>Læs mere</Link>
-              </div>
-              <img src={item.image?.[0]?.url || ""} alt={item.heading} />
-            </article>
-          );
-        })}
-      </div>
-    </>
+    <div className={s.contentStyle}>
+      {filteredArticles.map((item) => (
+        <article className={s.articleStyle} key={item.id}>
+          <div className={s.articleDevider}>
+            <h2>{item.heading}</h2>
+            <span className={s.articleInfo}>
+              <p>{formatDate(item.published)}</p>
+              <p> af {item.author}</p>
+            </span>
+            <Link to={`/article/${item.id}`}>Læs mere</Link>
+          </div>
+          <img src={item.image?.[0]?.url || ""} alt={item.heading} />
+        </article>
+      ))}
+    </div>
   );
 };

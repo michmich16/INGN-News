@@ -1,5 +1,5 @@
-import './App.scss'
-import { useState, useEffect } from 'react'
+import { useState } from 'react';
+import './App.scss';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainLayout } from './layouts/MainLayout';
@@ -9,22 +9,23 @@ import { LoginPage } from './pages/LoginPage';
 
 function App() {
   const queryClient = new QueryClient();
+  const [selectedHashtag, setSelectedHashtag] = useState("");
 
   return (
     <>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Routes>
-            <Route path={"/"} element={<MainLayout />}>
-              <Route index element={<HomePage />} />
-              <Route  path="/article/:id" element={<SingleArticlePage />} />
+            <Route path={"/"} element={<MainLayout setSelectedHashtag={setSelectedHashtag} />}>
+              <Route index element={<HomePage selectedHashtag={selectedHashtag} />} />
+              <Route path="/article/:id" element={<SingleArticlePage />} />
               <Route path={`/login`} element={<LoginPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,12 +1,13 @@
 import React from 'react';
 import { singleArticle } from '../../queries/singleArticle';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import request from 'graphql-request';
-import s from './SingleContent.module.scss'; // Add your CSS import here
+import s from './SingleContent.module.scss';
 
 export const SingleContent = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["singleArticle", id],
@@ -30,8 +31,12 @@ export const SingleContent = () => {
 
   const item = data.article;
   console.log(item);
+  
   return (
     <div className={s.contentStyle}>
+      <ul className={s.backNav}>
+        <li onClick={() => navigate(-1)} className={s.backItem}>&lt; Tilbage</li>
+      </ul>
       <article className={s.articleStyle} key={item.id}>
         <img src={item.image?.[0]?.url || ""} alt={item.heading} />
         <div className={s.articleDevider}>
