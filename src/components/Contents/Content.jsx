@@ -20,6 +20,7 @@ export const Content = ({ selectedHashtag }) => {
   if (error) {
     return <p>Error {error.message}</p>;
   }
+  console.log(data);
 
   const filteredArticles = selectedHashtag
     ? data?.articles.filter((article) =>
